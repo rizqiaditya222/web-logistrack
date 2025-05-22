@@ -19,7 +19,7 @@ services:
     container_name: logistrack-app
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "3010:3000"
     environment:
       - MONGODB_URI=mongodb://mongodb:27017/logistrack
       - NODE_ENV=production
@@ -43,14 +43,14 @@ services:
       - GROUPID=1000
       - USER=logistrack;password123
     volumes:
-      - mongodb_data:/mount/db:ro
-      - ./exports:/mount/exports
+      - ./exports:/shared/exports
+      - ./reports:/shared/reports
     command: >
-      -s "LogisTrack Data;/mount;yes;no;no;all;logistrack"
+      -s "LogisTrack Exports;/shared/exports;yes;no;no;all;logistrack"
+      -s "LogisTrack Reports;/shared/reports;yes;no;no;all;logistrack"
+      -p
     networks:
       - logistrack-network
-    depends_on:
-      - mongodb
 
 volumes:
   mongodb_data:
