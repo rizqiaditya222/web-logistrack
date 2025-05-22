@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
-import { useState } from "react";
 import { Boxes } from "lucide-react";
 
-const CardStock = () => {
-  const [totalStock, setTotalStock] = useState("0");
+interface CardStockProps {
+  totalStock?: string;
+}
 
+const CardStock = ({ totalStock = "0" }: CardStockProps) => {
   return (
     <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-5 flex items-center gap-4 shadow-sm border border-blue-200 hover:shadow-md transition-shadow">
       <div className="bg-blue-200 text-blue-700 p-3 rounded-lg">

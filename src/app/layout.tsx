@@ -27,7 +27,7 @@ export default function RootLayout({
           </div>
           <div className="pl-64 mt-6 w-full transition-all duration-300">
             <main className="flex-1">
-              <div className="max-w-7xl mx-auto">{children}</div>
+              <div className="max-w-7xl mx-auto relative">{children}</div>
             </main>
           </div>
         </div>
